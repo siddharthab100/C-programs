@@ -1,3 +1,5 @@
+/*Input: A five digit Natural number.*/
+?*Output An ascii presentation of the number with only the symbol # used.*/
 #include<stdio.h>
 int main()
 {int i,j,k,l,n,m, d[5];
