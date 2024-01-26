@@ -1,0 +1,24 @@
+/*An issue with returning floats via functions*/
+#include<stdio.h>
+squ_are(float);
+float square(float);
+void main()
+{float a=2.5,b,c;
+b= squ_are(a);
+c=square(a);
+printf("Suare of %f is %f",a,squ_are(a));
+printf("Suare of %f is %f",a,square(a));
+printf("Suare of %f is %f",a,b);
+printf("Suare of %f is %f",a,c);
+}
+
+squ_are(float x) /*by default functions return int type*/
+{float y;
+ y=x*x;
+ return(y);
+  }
+float square(float x)
+{float y;
+ y=x*x;
+ return(y);
+  }
