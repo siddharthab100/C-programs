@@ -6,9 +6,9 @@ void main()
 {float a=2.5,b,c;
 b= squ_are(a);
 c=square(a);
-printf("Suare of %f is %f",a,squ_are(a));
-printf("Suare of %f is %f",a,square(a));
-printf("Suare of %f is %f",a,b);
+printf("Suare of %f is %f\n",a,squ_are(a));
+printf("Suare of %f is %f\n",a,square(a));
+printf("Suare of %f is %f\n",a,b);
 printf("Suare of %f is %f",a,c);
 }
 
