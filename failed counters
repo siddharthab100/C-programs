@@ -1,0 +1,59 @@
+#include<stdio.h>
+void fn(int, int);
+int count=0;
+void main()
+{
+fn(50,0);
+}
+void fn(int n, int m)
+{ int i;
+count++;
+printf("%d\t",count);
+for (i=0;i<20 && m<=n;i+=2)
+{
+    if (count>=100)
+{
+    return;
+}
+    fn(50,0); // After the counter is maxed out and we have returned this line still pushes the counter and it stays 100
+    m+=i;
+    
+    printf("%d %d\n",count,m);
+
+}
+
+}
+
+//888888888888888888888888888888
+#include<stdio.h>
+void fn (int, int);
+int count = 0;
+void
+main ()
+{
+  fn (50, 0);
+}
+
+void
+fn (int n, int m)
+{
+  int i;
+  count++;
+  printf ("%d\t", count);
+  if (count >= 100)
+	{
+	  return;
+	}
+  for (i = 0; i < 20 && m <= n; i += 2)
+	{
+
+
+	  fn (50, 0);
+
+	  m += i;
+
+	  printf ("%d %d\n", count, m);
+
+	}
+
+}
