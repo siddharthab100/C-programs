@@ -1,0 +1,14 @@
+#include<stdio.h>
+void fn();
+void main()
+{
+fn();
+}
+void fn()
+{static int i;
+for (i=0;i<20;i++)
+{printf("%d\n",i);
+
+}
+
+}
