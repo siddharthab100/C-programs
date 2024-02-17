@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void main()
+{ srand(time(NULL));
+  int i,m=20,M=67,len=6;
+  char chr; 
+  char str[len];
+ printf("Behold a random integer\t %d\t \n", i=rand());
+ i= (i%(M-m+1) +m  );
+ printf("Behold a random integer between %d and %d (inclusive)\t %d\t \n ",m, M, i);
+ /*  Letter     Ascii
+       A          65           
+
+       Z          90
+       a          97
+
+       z         122
+*/
+ chr=  rand()%(26) + 'a';
+printf("Behold a random small alphabet\t %c\t \n", chr);
+for (i=0; i<len; i++)
+  { str[i]= rand()%(26) + 'a';
+  }
+printf("Behold a random string\t %s \n", str); 
+}
