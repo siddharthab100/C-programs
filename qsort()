@@ -1,0 +1,22 @@
+// qsort() sorts array of any type as long as it gets a function that can compare two items
+// first example :- sort an int array
+#include<stdio.h>
+#include<stdlib.h>
+int compar(const void* , const void* );
+void main()
+{ int a[6] = {3,2,7,-1,6,-4};
+qsort(a,6,sizeof(int), compar);
+for(int i=0; i<6; i++)
+{printf("%d", a[i]);
+}
+}
+int compar(const void *x, const void* y)
+{ const int *p=x;
+const int *q=y;
+if(*p> *q)
+ return 1;
+if(*p<*q)
+return -1;
+return 0;
+}
+// while we are at it 
