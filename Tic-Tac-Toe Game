@@ -6,6 +6,7 @@
     4) who chose what symbol and who goes first?
     5) How would the transition happen from player to player?
     6) what would the board initially be?
+    7) what if the player want to mark a position that's already marked?
 
 */
 
@@ -13,23 +14,26 @@
 #include<string.h>
 #include<stdlib.h>
 #include<time.h>
+#include<ctype.h>
 struct computer{
 char mark;
 int choice;
 }compu;
+char board[10]={'0','1','2','3','4','5','6','7','8','9'};
+
 void printBaord(char*);
 
 void main();
 {
-  char board[10]={'0','1','2','3','4','5','6','7','8','9'};
-  int i,intro=0;
-  int player;
+    int i,intro=0;
+  int player, choice ;
+  gameStatus; 
   char mark;
   char str[10];
   while(intro==0)
 {
   intro++;
-  printf("Who do you want to go first? write 'me' for you or computer\n");
+  printf("Who do you want to go first? write 'me' for you or just computer\n");
   scanf("%s",str);
   if( strcmp(str, "me") ||strcmp(str, "Me")||strcmp(str, "ME") == 0)
     player=0;
@@ -47,10 +51,41 @@ intro--;
 {  intro++;
 printf("Enter your mark\n");
   scanf("%c", mark);
+  
 if(mark!= 'x'||mark!= 'X'||mark!= 'O'||mark!= 'o')
-  printf("Enter valid mark");
+  printf("Enter valid mark\n");
   intro--;
 }
+mark= toupper(mark);
+if(mark == 'X')
+    compu.mark= 'O';
+else
+    compu.mark= 'X';
+i=0;
+do
+{    printBoard();
+     if(i%2 == player)
+    {   i++; 
+        printf("Enter choice position\n");
+        scanf("%d", choice);
+        signalForMarking= mrkBoard(mark, choice);
+        if(signalForMarking==0)
+            {
+                printf("Enter Valid position\n");
+                i--;
+                continue;
+            }
+       gameStatus= checkForWin();
+       if(gameStatus== 1)
+        printf("You won");
+       elseif(gameStatus== 0)
+        printf("The game is draw");
+        exit();
+    }
+   else
+     { i++;
 
+     }
+ }
 
 }
