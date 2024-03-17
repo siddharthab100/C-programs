@@ -1,0 +1,82 @@
+/* Task:- print nos from 1-25 in a clockwise expanding spiral from center -- Theo 
+*/
+/* Well you cant actually go backwars in C if you already printed stuff (Legacy stuff). You can however use WIN32 Api.... 
+*/
+/* Task:- print nos from 1-25 in a clockwise expanding spiral from center -- Theo 
+*/
+/* Well you cant actually go backwars in C if you already printed stuff (Legacy stuff). You can however use WIN32 Api.... 
+   ***********Also note that for even and odd case you get different offsets; otherwise you cannot fill up the board
+*/
+
+#include<stdio.h>
+int n =7;
+void printBoard(int board[n+1][n+1]);
+void main()
+{ struct position{
+  int x;
+  int y;
+}pos;
+int offset;
+int i,j;
+int count=1;
+int board[n+1][n+1];
+offset = n/2  + n%2;
+pos.x= offset;
+pos.y = offset;
+for(i=0;i< n+1; i++)
+  for(j=0;j<n+1;j++)
+    board[i][j]=0;
+for(i=1; i<=n;i++)
+{if(i%2 == 1)
+{
+  j=1;
+  while(j++ < i)
+  {
+   board[pos.x][pos.y] = count++;
+   pos.x--;
+  }
+ j=1;
+ do
+ {
+ board[pos.x][pos.y] = count++;
+   pos.y++;
+ }while(j++ < i);
+}
+if(i%2 == 0)
+{
+  j=1;
+  while(j++ < i)
+  {
+   board[pos.x][pos.y] = count++;
+   pos.x++;
+  }
+ j=1;
+ do
+ {
+ board[pos.x][pos.y] = count++;
+   pos.y--;
+ }while(j++ < i);
+}
+
+}
+printBoard(board);
+}
+void printBoard(int board[n+1][n+1])
+{   int i,j;
+    for( i=1; i<n+1; i++)
+  { 
+    for( j=1; j<n+1; j++)
+      if(board[i][j] == 0)
+        printf("");
+      else
+        printf("%2d|", board[i][j]);
+       printf("\n");
+      for( j=1; j<n+1; j++)
+      printf("__|");
+    printf("\n");
+  }
+
+}
+
+
+}
